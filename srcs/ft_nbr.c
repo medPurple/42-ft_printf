@@ -12,33 +12,31 @@
 
 #include "../include/ft_printf.h"
 
-
 int	ft_put_di(unsigned int i)
 {
-	int k;
-	char *d;
-	
+	int		k;
+	char	*d;
+
 	d = ft_itoa(i);
 	k = ft_putstr_fd(d);
 	free(d);
-	return(k);
+	return (k);
 }
 
-
-int put_x(void)
+int	put_x(void)
 {
 	ft_putchar_fd('%');
-	return(1);
+	return (1);
 }
 
-int ft_put_u(unsigned int i)
+int	ft_put_u(unsigned int i)
 {
-	int count;
-	char *u;
+	int		count;
+	char	*u;
 
 	count = 0;
 	if (i == 0)
-		count += write(1,"0",1);
+		count += write(1, "0", 1);
 	else
 	{
 		u = ft_unsigned_itoa(i);
@@ -46,32 +44,30 @@ int ft_put_u(unsigned int i)
 		free(u);
 	}
 	return (count);
-	
-	
 }
 
-char *ft_unsigned_itoa(unsigned int i)
+char	*ft_unsigned_itoa(unsigned int i)
 {
-	int count;
-	char *u;
-	
+	int		count;
+	char	*u;
+
 	count = ft_len_u(i);
-	u = malloc(count+1);
+	u = malloc(count + 1);
 	if (!u)
 		return (NULL);
 	u[ft_len_u(i)] = '\0';
-	while (i>0)
+	while (i > 0)
 	{
-		u[count-1] = i % 10 + 48;
+		u[count - 1] = i % 10 + 48;
 		i /= 10;
 		count--;
 	}
-	return(u);
+	return (u);
 }
 
-int ft_len_u(unsigned int u)
+int	ft_len_u(unsigned int u)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (u != 0)
@@ -79,5 +75,5 @@ int ft_len_u(unsigned int u)
 		count++;
 		u /= 10;
 	}
-	return(count);
+	return (count);
 }

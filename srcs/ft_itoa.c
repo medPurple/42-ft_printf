@@ -6,13 +6,13 @@
 /*   By: wmessmer <wmessmer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:48:02 by wmessmer          #+#    #+#             */
-/*   Updated: 2022/11/28 14:48:36 by wmessmer         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:17:47 by wmessmer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static size_t	nblen(int n)
+size_t	nblen(int n)
 {
 	size_t			i;
 	unsigned int	nb;

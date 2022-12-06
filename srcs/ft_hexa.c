@@ -12,29 +12,27 @@
 
 #include "../include/ft_printf.h"
 
-int nb_to_hexa(unsigned int a,const char type)
+int	nb_to_hexa(unsigned int a, const char type)
 {
-    if (a>=16)
+	if (a >= 16)
 	{
-		nb_to_hexa((a / 16),type);
-		nb_to_hexa((a % 16),type);
+		nb_to_hexa((a / 16), type);
+		nb_to_hexa((a % 16), type);
 	}
 	else
 	{
-		if ( a <= 9)
+		if (a <= 9)
 			ft_putchar_fd(a + '0');
 		else
 		{
 			if (type == 'x')
 				ft_putchar_fd(a - 10 + 'a');
 			else if (type == 'X')
-				ft_putchar_fd(a - 10 + 'A');	
+				ft_putchar_fd(a - 10 + 'A');
 		}
 	}
 	return (hexa_len(a));
 }
-
-
 
 int	hexa_len(unsigned int a)
 {
@@ -51,8 +49,8 @@ int	hexa_len(unsigned int a)
 
 int	ft_print_hex(unsigned int a, const char type)
 {
-	int count;
-	
+	int	count;
+
 	count = 0;
 	if (a == 0)
 		count += write(1, "0", 1);

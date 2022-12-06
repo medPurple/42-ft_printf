@@ -12,36 +12,36 @@
 
 #include "../include/ft_printf.h"
 
-int void_to_hexa (unsigned long long p)
+int	void_to_hexa(unsigned long long p)
 {
-	int count;
-	
+	int	count;
+
 	count = 0;
 	if (p == 0)
-		count += write(1,"(nil)",5);
+		count += write(1, "(nil)", 5);
 	else
 	{	
-		count = write(1,"0x",2);
+		count = write(1, "0x", 2);
 		ft_print_hexavoid(p);
 		count += hexavoid_len(p);
 	}
 	return (count);
 }
 
-int ft_print_hexavoid (uintptr_t a)
+int	ft_print_hexavoid(uintptr_t a)
 {
-	if (a>=16)
+	if (a >= 16)
 	{
 		ft_print_hexavoid(a / 16);
 		ft_print_hexavoid(a % 16);
 	}
 	else
-		{
-			if (a <= 9)
-				ft_putchar_fd(a + '0');
-			else
-				ft_putchar_fd(a - 10 + 'a');
-		}
+	{
+		if (a <= 9)
+			ft_putchar_fd(a + '0');
+		else
+			ft_putchar_fd(a - 10 + 'a');
+	}
 }
 
 int	hexavoid_len(uintptr_t a)
